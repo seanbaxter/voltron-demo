@@ -111,8 +111,8 @@ void radix_sort(key_t* data, size_t count) {
 
     if(!cta && !tid) {
       // Let thread 0 print its tuning.
-      printf("%s: sm_%d has %3dx%2d", tuning.string, 
-        __builtin_current_device_sm(), nt, vt);
+      printf("%s: sm_%d has %dx%d", tuning.string, 
+        __builtin_current_device_sm() / 10, nt, vt);
       if constexpr(@has_attribute(tuning, occ))
         printf(" occ=%d", @attribute(tuning, occ));
       if constexpr(@has_attribute(tuning, persistent))
